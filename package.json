@@ -1,0 +1,37 @@
+{
+  "name": "stockslifyblogs-nodessr",
+  "version": "1.0.0",
+  "description": "Demystify the Nepalese Stock Exchange (NEPSE) with our comprehensive blog! We provide insightful analysis, actionable tips, and daily market summaries to empower you as an investor.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "\"Nepalese",
+    "Stock",
+    "Market",
+    "\"",
+    "\"NEPSE",
+    "\"",
+    "\"investment",
+    "tips",
+    "\"",
+    "\"stock",
+    "market",
+    "analysis",
+    "\"",
+    "and",
+    "\"daily",
+    "market",
+    "summaries.\""
+  ],
+  "author": "majhiNpl",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.0",
+    "nodemon": "^3.1.2"
+  }
+}
