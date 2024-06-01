@@ -10,7 +10,12 @@ function handleRenderRegisterPage(req, res) {
   res.render("auth/register");
 }
 
+function handleRenderLoginPage(req, res) {
+  res.render("auth/login");
+}
+
 module.exports = {
   handleRenderIndexPage,
   handleRenderRegisterPage,
+  handleRenderLoginPage,
 };

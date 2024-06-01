@@ -22,6 +22,7 @@ app.use("/", blogRouter);
 
 // Access to css files
 app.use(express.static("public/css/"));
+app.use(express.static("public/images/"));
 
 app.listen(PORT, () => {
   console.log(`Server listening at : ${PORT}`);
