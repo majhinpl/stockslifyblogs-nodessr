@@ -1,14 +1,14 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const PORT = 3001;
+const PORT = 8001;
 const dotenv = require("dotenv");
 dotenv.config();
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 
-app.use(express.urlencoded({ extended: true })); // SSR
+app.use(express.urlencoded({ extended: false })); // SSR
 app.use(express.json()); // external like react
 
 const dbConnect = require("./database/index");
