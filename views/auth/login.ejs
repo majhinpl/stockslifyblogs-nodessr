@@ -1,28 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-    <link rel="stylesheet" href="auth.css" />
-  </head>
-  <body>
-    <div class="auth">
-      <h1>Login</h1>
-      <form action="/login" method="post">
-        <input required type="email" placeholder="email" name="email" />
-        <input
-          required
-          type="password"
-          placeholder="password"
-          name="password"
-        />
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/auth.css">
+  <link rel="stylesheet" href="/css/fonts.css">
+  <title>Login Page</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="auth-page">
+      <h2 class="heading">Login</h2>
+      <p class="sub-heading">Don't have an account? <a href="/user/register" class="a-link">Create a free account</a>
+      </p>
+      <form action="/user/login" method="post" class="form">
+
+        <div class="input-group">
+          <label class="form-label" for="email">Email address</label>
+          <input type="email" id="email" class="form-control" name="email" required />
+        </div>
+
+        <div class="input-group">
+          <div class="pw-group">
+            <label class="form-label" for="password">Password</label>
+            <span><a href="#" class="a-link">Forgot password?</a></span>
+          </div>
+          <input type="password" id="password" class="form-control" name="password" required />
+        </div>
+
         <button type="submit">Login</button>
-        <p>This is an error!</p>
-        <span>
-          Don't you have an account? <a href="/register">Register</a>
-        </span>
       </form>
     </div>
-  </body>
+  </div>
+
+</body>
+
 </html>
