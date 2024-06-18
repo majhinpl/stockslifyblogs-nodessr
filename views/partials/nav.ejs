@@ -1,44 +1,130 @@
 <link rel="stylesheet" href="/css/globle.css">
 
-<div class="container">
+<!-- <header class="container header">
 
   <div class="navbar-top">
+
     <a class="brand nav-link" href="/">
       Stockslify
     </a>
-    <form action="#" class="search-form">
-      <span><img src="/images/search.png" alt="" height="20" width="20" class="search-icon"></span>
-      <input type="search" placeholder="search your favorite content" class="search-input" />
-    </form>
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="/">Home</a>
-      </li>
-      <% if (locals.user) { %>
+    <div class="mobile-menu">
+
+
+    </div>
+
+
+    <div class="hidden">
+      <form action="#" class="search-form">
+        <span><img src="/images/search.png" alt="" height="20" width="20" class="search-icon"></span>
+        <input type="search" placeholder="search your favorite content" class="search-input" />
+      </form>
+
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="/blog/create">Add Blog</a>
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Majhintech
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/user/Logout">Logout</a></li>
-          </ul>
-        </li>
-        <% } else { %>
+        <% if (locals.user) { %>
           <li class="nav-item">
-            <a class="nav-link" href="/user/login">Login</a>
+            <a class="nav-link" href="/blog/create">Add Blog</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/user/register">Register</a>
+          <li class="nav-item dropdown">
+            <a class="dropdown-item" href="/user/Logout">Logout</a>
           </li>
-          <% }%>
-    </ul>
+
+          <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/user/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/user/register">Register</a>
+            </li>
+            <% }%>
+      </ul>
+    </div>
   </div>
+</header> -->
 
-
+<div class="navbar">
+  <div class="brand">Brand</div>
+  <div class="search-bar">
+    <input type="text" placeholder="Search...">
+  </div>
+  <div class="nav-links" id="navLinks">
+    <select id="languageSelect">
+      <option value="nepali">नेपाली</option>
+      <option value="english">English</option>
+    </select>
+    <a href="#" id="homeLink">Home</a>
+    <a href="#" id="writeLink">Write</a>
+    <a href="/user/register" id="registerLink">Register</a>
+    <a href="/user/login" id="signInLink">Sign In</a>
+    <a href="/user/logout" id="signOutLink">Sign Out</a>
+  </div>
+  <div class="hamburger" onclick="toggleMobileMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 </div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" id="homeLinkMobile">Home</a>
+  <a href="/blog/create" id="writeLinkMobile">Write</a>
+  <a href="/user/register" id="registerLinkMobile">Register</a>
+  <a href="/user/login" id="signInLinkMobile">Sign In</a>
+  <a href="/user/logout" id="signOutLinkMobile">Sign Out</a>
+  <select id="languageSelectMobile">
+    <option value="nepali">नेपाली</option>
+    <option value="english">English</option>
+  </select>
+</div>
+
+
+<script>
+  function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  function updateNavLinks(isLoggedIn) {
+    const writeLink = document.getElementById('writeLink');
+    const signOutLink = document.getElementById('signOutLink');
+    const registerLink = document.getElementById('registerLink');
+    const signInLink = document.getElementById('signInLink');
+    const homeLink = document.getElementById('homeLink');
+
+    const writeLinkMobile = document.getElementById('writeLinkMobile');
+    const signOutLinkMobile = document.getElementById('signOutLinkMobile');
+    const registerLinkMobile = document.getElementById('registerLinkMobile');
+    const signInLinkMobile = document.getElementById('signInLinkMobile');
+    const homeLinkMobile = document.getElementById('homeLinkMobile');
+
+    if (isLoggedIn) {
+      writeLink.style.display = 'block';
+      signOutLink.style.display = 'block';
+      registerLink.style.display = 'none';
+      signInLink.style.display = 'none';
+
+      writeLinkMobile.style.display = 'block';
+      signOutLinkMobile.style.display = 'block';
+      registerLinkMobile.style.display = 'none';
+      signInLinkMobile.style.display = 'none';
+    } else {
+      writeLink.style.display = 'none';
+      signOutLink.style.display = 'none';
+      registerLink.style.display = 'block';
+      signInLink.style.display = 'block';
+
+      writeLinkMobile.style.display = 'none';
+      signOutLinkMobile.style.display = 'none';
+      registerLinkMobile.style.display = 'block';
+      signInLinkMobile.style.display = 'block';
+    }
+  }
+
+  // Example of setting the navigation links based on the user login status
+  const userLoggedIn = false; // Change this to true if the user is logged in
+  updateNavLinks(userLoggedIn);
+</script>
 
 <% if (locals.error) { %>
   <div class="container mt-4">

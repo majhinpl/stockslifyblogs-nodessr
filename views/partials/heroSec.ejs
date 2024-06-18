@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Carousel</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .carousel-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            height: 480px;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            will-change: transform;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+        }
+
+        .carousel-item .category {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .carousel-item h1 {
+            position: absolute;
+            bottom: 60px;
+            left: 20px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .carousel-item .date {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .carousel:hover {
+            animation-play-state: paused;
+        }
+
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .carousel-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        @media (max-width: 768px) {
+
+            .carousel-item h1,
+            .carousel-item .date,
+            .carousel-item .category {
+                font-size: 14px;
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="carousel-container">
+        <div class="carousel" id="carousel">
+            <% blogs.slice(0, 5).forEach(blog=> { %>
+                <a href="<%= blog.url %>" class="carousel-item">
+                    <img src="<%= blog.coverImageUrl %>" alt="<%= blog.title %>">
+                    <div class="category">
+                        <%= blog.category %>
+                    </div>
+                    <h1>
+                        <%= blog.title %>
+                    </h1>
+                    <div class="date">Posted on: <%= blog.date %>
+                    </div>
+                </a>
+                <% }); %>
+        </div>
+        <div class="carousel-buttons">
+            <button id="prevButton">‹</button>
+            <button id="nextButton">›</button>
+        </div>
+    </div>
+
+    <script>
+        const blogs = [{
+            url: 'blog1.html',
+            image: 'https://images.pexels.com/photos/5561923/pexels-photo-5561923.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+            , category: 'Category 1', title: 'Blog Title 1', date: '2023-06-18'
+        }, {
+            url: 'blog2.html',
+            image: 'https://images.pexels.com/photos/185576/pexels-photo-185576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+            , category: 'Category 2', title: 'Blog Title 2', date: '2023-06-17'
+        }, {
+            url: 'blog3.html',
+            image: 'https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+            , category: 'Category 3', title: 'Blog Title 3', date: '2023-06-16'
+        }, {
+            url: 'blog4.html',
+            image: 'https://images.pexels.com/photos/6771607/pexels-photo-6771607.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+            , category: 'Category 4', title: 'Blog Title 4', date: '2023-06-15'
+        }, {
+            url: 'blog5.html',
+            image: 'https://images.pexels.com/photos/5716016/pexels-photo-5716016.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+            , category: 'Category 5', title: 'Blog Title 5', date: '2023-06-14'
+        },];
+
+
+        let currentSlide = 0;
+
+        const carousel = document.getElementById('carousel');
+        const slides = document.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
+
+        document.getElementById('nextButton').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        });
+
+        document.getElementById('prevButton').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
+
+        function updateCarousel() {
+            const offset = -currentSlide * 100;
+            carousel.style.transform = `translateX(${offset}%)`;
+        }
+
+        // Auto-slide functionality
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }, 5000); // Adjust the time (5000ms = 5 seconds) as needed
+    </script>
+
+
+
+
+</body>
+
+</html>
