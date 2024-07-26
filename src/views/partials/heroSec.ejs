@@ -1,0 +1,21 @@
+<div class="carousel-container">
+    <div class="carousel" id="carousel">
+        <% blogs.slice(0, 5).forEach(blog=> { %>
+            <a href="<%= blog.url %>" class="carousel-item">
+                <img src="<%= blog.coverImageUrl %>" alt="<%= blog.title %>">
+                <div class="category">
+                    <%= blog.category %>
+                </div>
+                <h1>
+                    <%= blog.title %>
+                </h1>
+                <div class="date">Posted on: <%= blog.date %>
+                </div>
+            </a>
+            <% }); %>
+    </div>
+    <div class="carousel-buttons">
+        <button id="prevButton">&#10094;</button>
+        <button id="nextButton">&#10095;</button>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include("./partials/head") %>
+    <title>Home | Blog.Stockslify</title>
+</head>
+
+<body>
+  <%- include("./partials/nav") %>
+    <div class="container">
+      <%- include("./partials/heroSec") %>
+
+        <div class="main-content">
+          <div class="card-wrapper">
+            <% blogs.forEach(blog=> { %>
+
+              <div class="blog-card">
+                <div class="img">
+                  <img src=" <%= blog.coverImageUrl %> " class="card-img" alt="" width="400" />
+                </div>
+                <div class="card-content">
+                  <h1 class="card-title">
+                    <%= blog.title %>
+                  </h1>
+                  <p class="card-text">
+                    <small class="text-body-secondary">Last updated 3 mins ago</small>
+                  </p>
+                  <a href="/blog/<%= blog._id %>" class="button">Full Coverage</a>
+                </div>
+              </div>
+              <% }) %>
+          </div>
+
+          <div class="sidebar">
+            <h2>Latest Posts</h2>
+          </div>
+        </div>
+    </div>
+
+    <footer><%- include("./partials/footer") %></footer>
+
+    <%- include("./partials/scripts") %>
+</body>
+
+</html>

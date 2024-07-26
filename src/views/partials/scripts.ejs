@@ -1,0 +1,49 @@
+<script>
+  function openNav() {
+    document.getElementById("topNavbar").style.width = "100%";
+  }
+
+  function closeNav() {
+    document.getElementById("topNavbar").style.width = "0%";
+  }
+
+  // hero section
+  let currentSlide = 0;
+
+  const carousel = document.getElementById("carousel");
+  const slides = document.querySelectorAll(".carousel-item");
+  const totalSlides = slides.length;
+
+  document.getElementById("nextButton").addEventListener("click", () => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+  });
+
+  document.getElementById("prevButton").addEventListener("click", () => {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  });
+
+  function updateCarousel() {
+    const offset = -currentSlide * 100;
+    carousel.style.transform = `translateX(${offset}%)`;
+  }
+
+  // Auto-slide functionality
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+  }, 5000); // Adjust the time (5000ms = 5 seconds) as needed
+
+  function openNav() {
+    document.querySelector(".navbar-nav").classList.add("open");
+    document.querySelector(".open-menu").classList.add("change");
+    document.querySelector(".closebtn").style.display = "block";
+  }
+
+  function closeNav() {
+    document.querySelector(".navbar-nav").classList.remove("open");
+    document.querySelector(".open-menu").classList.remove("change");
+    document.querySelector(".closebtn").style.display = "none";
+  }
+</script>

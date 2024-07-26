@@ -1,20 +1,18 @@
-const express = require("express");
 const User = require("../model/userModel");
-const router = express.Router();
 
-router.get("/register", (req, res) => {
+renderRegisterPage = (req, res) => {
   return res.render("auth/register");
-});
+};
 
-router.get("/login", (req, res) => {
+renderLoginPage = (req, res) => {
   return res.render("auth/login");
-});
+};
 
-router.get("/logout", (req, res) => {
+handleLogoutPage = (req, res) => {
   res.clearCookie("token").redirect("/");
-});
+};
 
-router.post("/login", async (req, res) => {
+handleLogin = async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) return res.send("Please provide email or password");
@@ -28,9 +26,9 @@ router.post("/login", async (req, res) => {
       error: "incorrect Email or Password",
     });
   }
-});
+};
 
-router.post("/register", async (req, res) => {
+handleRegister = async (req, res) => {
   try {
     const { fullName, email, password } = req.body;
 
@@ -49,6 +47,12 @@ router.post("/register", async (req, res) => {
   } catch (error) {
     return res.send("unable to register user");
   }
-});
+};
 
-module.exports = router;
+module.exports = {
+  renderRegisterPage,
+  renderLoginPage,
+  handleLogoutPage,
+  handleLogin,
+  handleRegister,
+};

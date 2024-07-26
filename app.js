@@ -7,15 +7,15 @@ dotenv.config();
 
 const PORT = 8002;
 
-const connectDb = require("./database/index");
+const connectDb = require("./src/database/index");
 connectDb();
-const { checkForAuthCookie } = require("./middlewares/authentication");
-const userRoute = require("./routes/userRoute");
-const blogRoute = require("./routes/blogRoute");
-const Blog = require("./model/blogModel");
+const { checkForAuthCookie } = require("./src/middlewares/authentication");
+const userRoute = require("./src/routes/userRoute");
+const blogRoute = require("./src/routes/blogRoute");
+const Blog = require("./src/model/blogModel");
 
 app.set("view engine", "ejs");
-app.set("views", path.resolve("./views"));
+app.set("views", path.resolve("./src/views"));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
