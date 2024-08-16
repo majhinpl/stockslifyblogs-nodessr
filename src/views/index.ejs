@@ -1,46 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <%- include("./partials/head") %>
+  <head>
+    <%- include("./partials/head") %>
     <title>Home | Blog.Stockslify</title>
-</head>
+  </head>
 
-<body>
-  <%- include("./partials/nav") %>
-    <div class="container">
-      <%- include("./partials/heroSec") %>
+  <body>
+    <header class="header">
+      <%- include("./partials/nav") %>
+      <section class="hero-section container">
+        <h1 class="hero-heading">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </h1>
+        <p class="hero-short-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+          incidunt facilis itaque molestias odit vel, velit voluptatibus.
+          Debitis aut sequi est cupiditate, ullam repellendus voluptatibus
+          tempora?
+        </p>
+        <button class="button">Full Coverage</button>
+      </section>
+    </header>
+    <main class="container">
+      <section class="main-content">
+        <div class="card-wrapper">
+          <% blogs.forEach(blog=> { %>
 
-        <div class="main-content">
-          <div class="card-wrapper">
-            <% blogs.forEach(blog=> { %>
-
-              <div class="blog-card">
-                <div class="img">
-                  <img src=" <%= blog.coverImageUrl %> " class="card-img" alt="" width="400" />
-                </div>
-                <div class="card-content">
-                  <h1 class="card-title">
-                    <%= blog.title %>
-                  </h1>
-                  <p class="card-text">
-                    <small class="text-body-secondary">Last updated 3 mins ago</small>
-                  </p>
-                  <a href="/blog/<%= blog._id %>" class="button">Full Coverage</a>
-                </div>
-              </div>
-              <% }) %>
+          <div class="blog-card">
+            <div class="img">
+              <img
+                src=" <%= blog.coverImageUrl %> "
+                class="card-img"
+                alt=""
+                width="400"
+              />
+            </div>
+            <div class="card-content">
+              <h1 class="card-title"><%= blog.title %></h1>
+              <span class="text-body-secondary">Last updated 3 mins ago</span>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+                incidunt facilis itaque molestias odit vel, velit voluptatibus.
+                Debitis aut sequi est cupiditate, ullam repellendus voluptatibus
+                tempora?
+              </p>
+              <a href="/blog/<%= blog._id %>" class="button">Full Coverage</a>
+            </div>
           </div>
 
-          <div class="sidebar">
-            <h2>Latest Posts</h2>
+          <% }) %>
+        </div>
+      </section>
+
+      <sidebar class="sidebar">
+        <h2 class="post-subhading">Popular Posts</h2>
+        <div class="sidebar-posts">
+          <div class="ranks">
+            <p>1</p>
+          </div>
+          <div class="post-title">
+            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
           </div>
         </div>
-    </div>
 
-    <footer><%- include("./partials/footer") %></footer>
+        <h2 class="post-subhading">RECENT POSTS</h2>
+        <div class="sidebar-posts">
+          <div class="img">
+            <img src="" alt="" />
+          </div>
+          <div class="post-title">
+            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+          </div>
+        </div>
+      </sidebar>
+    </main>
+    <section class="pagination">
+      <span>
+        View More
+        <i class="ri-skip-down-line"></i>
+      </span>
+    </section>
+    <section class="page-newsletter">
+      <div class="newsletter-container">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>
+          Get the latest updates, news, and exclusive content delivered straight
+          to your inbox.
+        </p>
+        <form action="#" method="post" class="newsletter-form">
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container"><%- include("./partials/footer") %></div>
+    </footer>
 
     <%- include("./partials/scripts") %>
-</body>
-
+  </body>
 </html>

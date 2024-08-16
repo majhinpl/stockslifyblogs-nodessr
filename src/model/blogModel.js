@@ -6,6 +6,10 @@ const blogSchema = new Schema(
       type: String,
       required: true,
     },
+    shortText: {
+      type: String,
+      required: true,
+    },
     body: {
       type: String,
       required: true,
