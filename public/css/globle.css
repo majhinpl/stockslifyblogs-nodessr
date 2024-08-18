@@ -131,8 +131,8 @@ body {
 }
 
 footer {
-  background-color: var(--background);
-  color: var(--text-100);
+  background-color: var(--accent-300);
+  color: var(--text-950);
   text-align: center;
   padding: 1em 0;
 }
@@ -149,6 +149,16 @@ header {
 
 .hero-side-card {
   display: flex;
+  gap: 20px;
+}
+
+.hero-section {
+  margin-bottom: 50px;
+}
+
+.featured-blog-heading {
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 .hero-side {
@@ -157,20 +167,28 @@ header {
   gap: 25px;
 }
 
+.hero-side-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+}
+
 .button {
   width: max-content;
-  padding: 10px 20px;
+  padding: 5px 10px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
-  background-color: var(--primary-yellow);
-  border: 1px solid var(--light-green);
-  color: teal;
+  background-color: var(--accent-500);
+  border: 1px solid var(--primary-500);
+  color: var(--text-900)
 }
 
 .button:hover {
   border: 1px solid white;
-  background-color: var(--light-yellow);
-  color: var(--dark-green);
+  background-color: var(--primary-500);
+  color: var(--accent-500);
 }
 
 /* genetal styles */
@@ -197,6 +215,17 @@ a {
   color: currentColor;
 }
 
+.hero-side-card img,
+.hero-main img {
+  border-radius: 10px;
+  box-shadow: 1px 2px 5px var(--accent-600);
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
 .user-handle {
   display: flex;
   gap: 1rem;
@@ -220,7 +249,7 @@ a {
 }
 
 .user-btn-register {
-  background-color: var(--green);
+  background-color: var(--primary-600);
   color: #fff;
   border: none;
   font-weight: bold;
@@ -285,18 +314,24 @@ a {
 
 .navbar-content {
   flex-direction: column;
+
+
 }
 
-.navbar-content .search-bar {
+.navbar-content-hr {
+  color: var(--accent-400);
+}
+
+.search-bar {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   margin-left: 24px;
   border-radius: 25px;
-  background-color: var(--primary-yellow);
+  border: 0.5px solid var(--accent-200);
 }
 
-.navbar-content .search-bar i {
+.search-bar i {
   cursor: pointer;
   margin-right: 20px;
 }
@@ -306,8 +341,9 @@ a {
 }
 
 .topbar .search-bar input {
-  width: 100%;
+  width: 300px;
   padding: 10px;
+
 }
 
 .navbar-nav {
@@ -323,12 +359,14 @@ a {
 
 .nav-link {
   text-decoration: none;
-  padding: 20px 20px;
+  padding: 5px 10px;
   display: block;
+  border-radius: 8px;
 }
 
 .nav-link:hover {
-  background-color: #27ae60;
+  background-color: var(--accent-400);
+  opacity: 0.6;
 }
 
 .dropdown-menu {
@@ -456,6 +494,11 @@ a {
 
 .blog-card p {
   font-size: 18px;
+}
+
+.card-content-1 {
+  display: flex;
+  gap: 50px;
 }
 
 /* .blog-card:nth-child(2n + 1) {

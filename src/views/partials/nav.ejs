@@ -6,11 +6,7 @@
         <!-- <h2 class="brand-text">Stockslify</h2> -->
       </a>
       <div class="search-bar">
-        <input
-          type="search"
-          placeholder="search your favorite content"
-          class="search-input"
-        />
+        <input type="search" placeholder="Search your favorite content" class="search-input" />
         <i class="ri-search-line"></i>
       </div>
       <div class="end-content">
@@ -21,21 +17,14 @@
         <div class="user-handle">
           <% if (locals.user) { %>
 
-          <a href="/blog/write" id="writeLink" class="user-btn">Write</a>
-          <a href="/user/logout" id="signOutLink" class="user-btn"
-            ><i class="ri-logout-circle-line"></i> Sign Out</a
-          >
-          <% } else { %>
-          <a href="/user/login" id="signInLink" class="user-btn-signin user-btn"
+            <a href="/blog/write" id="writeLink" class="user-btn">Write</a>
+            <a href="/user/logout" id="signOutLink" class="user-btn"><i class="ri-logout-circle-line"></i> Sign Out</a>
+            <% } else { %>
+              <!-- <a href="/user/login" id="signInLink" class="user-btn-signin user-btn"
             ><i class="ri-login-circle-line"></i> Sign In</a
-          >
-          <a
-            href="/user/register"
-            id="registerLink"
-            class="user-btn-register user-btn"
-            >Sign Up</a
-          >
-          <% }%>
+          > -->
+              <a href="/user/register" id="registerLink" class="user-btn-register user-btn">Sign Up</a>
+              <% }%>
         </div>
       </div>
     </div>
@@ -59,9 +48,8 @@
         <div class="bar3"></div>
       </div>
 
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-        >&times;</a
-      >
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     </div>
   </div>
+
 </nav>

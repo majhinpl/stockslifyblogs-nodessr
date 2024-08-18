@@ -10,17 +10,19 @@
   <header><%- include("./partials/nav") %></header>
   <main class="container">
     <section class="hero-section">
-      <p>Latest</p>
-      <h1>Discover the Best Stocks</h1>
-      <p>updated with the latest news and analysis</p>
-      <h3>Featured blog posts</h3>
+      <p class="inter-body">Latest</p>
+      <h1 class="raleway-heading">Discover the Best Stocks</h1>
+      <p class="inter-body"><small>Updated with the latest news and analysis</small></p>
+      <h2 class="raleway-heading featured-blog-heading">Featured blog posts</h2>
       <div class="hero-posts">
         <div class="hero-main">
           <img
             src=" https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 "
             class="hero-img" alt="" width="610" />
-          <p>Categories</p>
-          <span>5 min Read</span>
+          <div class="card-content-1">
+            <p>Categories</p>
+            <span>5 min Read</span>
+          </div>
           <h2>The Power of Compound Interest</h2>
           <p>Learn how to grow your wealth through compound interest</p>
           <a href="/">Read more &gt;</a>
@@ -31,10 +33,12 @@
               src="https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="" width="295" height="161" />
             <div class="hero-side-content">
-              <p>Categories</p>
-              <span>5 min Read</span>
+              <div class="card-content-1">
+                <p><b>Categories</b></p>
+                <span>5 min Read</span>
+              </div>
               <h3>The Power of Compound Interest</h3>
-              <a href="/">Read more &gt;</a>
+              <a href="/" class="button">Read more &gt;</a>
             </div>
           </div>
           <div class="hero-side-card">
@@ -42,10 +46,12 @@
               src="https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="" width="295" height="161" />
             <div class="hero-side-content">
-              <p>Categories</p>
-              <span>5 min Read</span>
+              <div class="card-content-1">
+                <p><b>Categories</b></p>
+                <span>5 min Read</span>
+              </div>
               <h3>The Power of Compound Interest</h3>
-              <a href="/">Read more &gt;</a>
+              <a href="/" class="button">Read more &gt;</a>
             </div>
           </div>
           <div class="hero-side-card">
@@ -53,10 +59,12 @@
               src="https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="" width="295" height="161" />
             <div class="hero-side-content">
-              <p>Categories</p>
-              <span>5 min Read</span>
+              <div class="card-content-1">
+                <p><b>Categories</b></p>
+                <span>5 min Read</span>
+              </div>
               <h3>The Power of Compound Interest</h3>
-              <a href="/">Read more &gt;</a>
+              <a href="/" class="button">Read more &gt;</a>
             </div>
           </div>
         </div>
@@ -72,8 +80,10 @@
               <img src=" <%= blog.coverImageUrl %> " class="card-img" alt="" width="505" height="300" />
             </div>
             <div class="card-content">
-              <span>Categories</span>
-              <span class="text-body-secondary">Last updated 3 mins ago</span>
+              <div class="card-content-1">
+                <span><b>Categories</b></span>
+                <span class="text-body-secondary">Last updated 3 mins ago</span>
+              </div>
               <h1 class="card-title raleway-heading">
                 <%= blog.title %>
               </h1>
@@ -84,7 +94,7 @@
                 voluptatibus. Debitis aut sequi est cupiditate, ullam
                 repellendus voluptatibus tempora?
               </p>
-              <a href="/blog/<%= blog._id %>" class="button">Full Coverage</a>
+              <a href="/blog/<%= blog._id %>" class="button">Full Coverage &gt;</a>
             </div>
 
 
